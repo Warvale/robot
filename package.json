@@ -1,0 +1,22 @@
+{
+  "name": "warvalebot",
+  "version": "1.0.0",
+  "description": "Warvale's discord bot!",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Warvale/robot.git"
+  },
+  "author": "Warvale",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/Warvale/robot/issues"
+  },
+  "homepage": "https://github.com/Warvale/robot#readme",
+  "dependencies": {
+    "discord.js": "^11.2.1"
+  }
+}
