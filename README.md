@@ -1,4 +1,4 @@
-## Warvale's discord bot! (This is still in progress)
+## Warvale's discord bot! 
 
 ### Self-hosting agreement:
 You don't.
