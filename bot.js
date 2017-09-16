@@ -29,9 +29,7 @@ if (msgpersec[msg.author.id] >= 3) {
 setInterval(()=>{msgpersec={}}, 1000);
 
 
-function isStaff(memberlol) {
-    return (!(!(memberlol.roles.find("name", "Junior Moderator")) && !(memberlol.roles.find("name", "Moderator")) && !(memberlol.roles.find("name", "Senior Moderator")) && !(memberlol.roles.find("name", "Administrator"))));
-}
+function isStaff(memberlol) {return (!(!(memberlol.roles.find("name", "Junior Moderator")) && !(memberlol.roles.find("name", "Moderator")) && !(memberlol.roles.find("name", "Senior Moderator")) && !(memberlol.roles.find("name", "Administrator"))));}
 
 bot.on("ready",()=>{
 console.log(`Logged in as ${bot.user.tag}`);
