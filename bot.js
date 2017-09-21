@@ -83,7 +83,7 @@ bot.on("message",(msg)=>{
         }
         unmutetarget.removeRole(unmutetarget.roles.find("name", "Muted"));
         msg.channel.send(`<@!${msg.author.id}> has unmuted <@!${unmutetarget.user.id}>`);
-        msg.guild.channels.find("name" ,"warvale-bot-discord-logs").send(`:loudspeaker:  ${msg.author.tag} has unmuted ${unmutetarget.user.tag}`);
+        msg.guild.channels.find("name" ,"wv-bot-logs").send(`:loudspeaker:  ${msg.author.tag} has unmuted ${unmutetarget.user.tag}`);
 
          break;
 
