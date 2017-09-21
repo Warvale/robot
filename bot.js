@@ -64,7 +64,7 @@ bot.on("message",(msg)=>{
          }
          mutetarget.addRole(msg.guild.roles.find("name", "Muted")); // again, assuming muted rule exists.
          msg.channel.send(`<@!${msg.author.id}> has muted <@!${mutetarget.user.id}>`);
-         msg.guild.channels.find("name" ,"warvale-bot-discord-logs").send(`:mute: ${msg.author.tag} has muted ${mutetarget.user.tag}`);
+         msg.guild.channels.find("name" ,"wv-bot-logs").send(`:mute: ${msg.author.tag} has muted ${mutetarget.user.tag}`);
          break;
 
          case "unmute":
