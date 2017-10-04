@@ -14,9 +14,9 @@ client.login(require("./token"));
 
 client.on('ready', () => {
     console.log(`Warvale bot is now ready to serve ${client.users.size} Warvale players.\nThis bot was made by Warvale and is not to be self-hosted.`);
-    bot.setGame(`with ${client.users.size} warvalers!`);
+    client.setGame(`with ${client.users.size} warvalers!`);
     client.setInterval(()=>{
-        bot.setGame(`with ${client.users.size} warvalers!`);
+        client.setGame(`with ${client.users.size} warvalers!`);
     }, 1000*60*5);
 });
 
