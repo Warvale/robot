@@ -1,8 +1,8 @@
 {
-  "name": "warvalebot",
+  "name": "robot",
   "version": "1.0.0",
-  "description": "Warvale's discord bot!",
-  "main": "bot.js",
+  "description": "Discord bot made in Node.js (Discord.js lib) by Warvale.",
+  "main": "robot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,13 +10,19 @@
     "type": "git",
     "url": "git+https://github.com/Warvale/robot.git"
   },
-  "author": "Warvale",
-  "license": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Warvale/robot/issues"
   },
   "homepage": "https://github.com/Warvale/robot#readme",
   "dependencies": {
-    "discord.js": "^11.2.1"
+    "console-timestamp": "^0.3.0",
+    "discord.js": "github:hydrabolt/discord.js",
+    "djs-collection-persistent": "^0.1.4",
+    "install": "^0.10.1",
+    "npm": "^5.4.2",
+    "relevant-animals": "^1.1.3"
   }
 }
