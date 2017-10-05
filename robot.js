@@ -31,7 +31,7 @@ client.on(`message`, (msg) => {
 
     if (msg.author.bot) return;
 
-    if (msg.content.startsWith(prefix + `ping`)) {
+    // MISCELLANEOUS COMMANDS
         embed.setColor(`0xf56d05`);
         embed.setDescription(`Pong! Use \`${config.prefix}help\` for commands.`);
         msg.channel.send({ embed: embed });
