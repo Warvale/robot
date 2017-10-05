@@ -25,6 +25,7 @@ client.on(`ready`, () => {
 });
 
 
+// COMMANDS
 client.on(`message`, (msg) => {
     var args = msg.content.split(` `).slice(1);
     var result = args.join(` `);
@@ -59,6 +60,19 @@ client.on(`message`, (msg) => {
         embed.setDescription(cmds);
         msg.channel.send({ embed: embed });
     }
+});
+
+// LOGGING HANDLING & EVENTS
+var log = function(content) {
+    if (!client.guilds.first().channels.find(`name`, `warvale-bot-logs`)) return;
+    var now = new Date();
+    var logChannel = client.guilds.first().channels.find(`name`, `warvale-bot-logs`);
+    logChannel.send(`\`[${'hh:mm:ss'.timestamp}]\` ${content}`);
+}
+    
+client.on(`messageDelete`, (msg) => {
+    log(`A message by ${msg.author.tag} (${msg.author.id}) has been removed.\n**Content:** ${msg.content}`);
+});
+
 
     
-});
