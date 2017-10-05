@@ -3,7 +3,6 @@ const Discord = require(`discord.js`);
 const client = new Discord.Client();
 const PersistentCollection = require(`djs-collection-persistent`);
 const timestamp = require(`console-timestamp`);
-const animals = require(`relevant-animals`);
 // BOT STUFF, NOT DEPENDENCIES
 const config = require(`./config.json`);
 const prefix = config.prefix;
