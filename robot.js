@@ -41,16 +41,10 @@ client.on(`message`, (msg) => {
         var embed = new Discord.MessageEmbed();
         embed.setColor(`0xf56d05`);
         embed.setDescription(`Warvale is an upcoming Minecraft network featuring PVP games.`);
-        embed.addField(`Players`, msg.guild.members.size, true);
+        embed.addField(`Players`, msg.guild.memberCount, true);
         embed.addField(`Links`, `[GitHub](https://github.com/Warvale/robot)\n[Warvale](https://warvale.net)`, true);
         msg.channel.send({ embed: embed });
     } else
-
-    // if (msg.content.toLowerCase().startsWith(prefix + `debug`)) {
-    //     if (msg.author.id === "250536623270264833" || "142244934139904000") {
-    //         embed.setImage();
-    //     }
-    // } else
 
     if (msg.content.toLowerCase().startsWith(prefix + `help`)) {
         var embed = new Discord.MessageEmbed();
