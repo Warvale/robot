@@ -45,11 +45,6 @@ client.on(`message`, (msg) => {
         msg.channel.send({ embed: embed });
     } else
 
-    if (msg.content.startsWith(prefix + `cat`)) {
-        embed.setColor(`0xf56d05`);
-        embed.setDescription(`Here is a random cat...`);
-        animals.cat().then(s => embed.setImage(s));
-        msg.channel.send({ embed: embed });
     }
 
 
