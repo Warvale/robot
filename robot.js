@@ -43,6 +43,13 @@ client.on(`message`, (msg) => {
         embed.addField(`Players`, msg.guild.members.size, true);
         embed.addField(`Links`, `[GitHub](https://github.com/Warvale/robot)\n[Warvale](https://warvale.net)`, true);
         msg.channel.send({ embed: embed });
+    } else
+
+    if (msg.content.startsWith(prefix + `cat`)) {
+        embed.setColor(`0xf56d05`);
+        embed.setDescription(`Here is a random cat...`);
+        animals.cat().then(s => embed.setImage(s));
+        msg.channel.send({ embed: embed });
     }
 
 
