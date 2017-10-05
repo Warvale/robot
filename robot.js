@@ -74,6 +74,10 @@ client.on(`messageDelete`, (msg) => {
     log(`A message by **${msg.author.tag} (${msg.author.id})** has been removed.\n**Content:** ${msg.content}`);
 });
 
+client.on(`messageUpdate`, (oldMessage, newMessage) => {
+    log(`A message by **${oldMessage.author.tag} (${oldMessage.author.id})** has been edited.\n**Old:** ${oldMessage.content}\n**New:** ${newMessage.content}`);
+});
+
 client.on(`guildMemberAdd`, (member) => {
     log(`A new member called **${member.user.tag} (${member.user.id})** has joined the server.\n**Account created:** ${member.user.createdAt}.`);
 });
@@ -82,7 +86,5 @@ client.on(`guildMemberRemove`, (member) => {
     log(`A member called **${member.user.tag} (${member.user.id})** has left the server.\n**Joined:** ${member.joinedAt}.`);
 });
 
-client.on(`messageUpdate`, (oldMessage, newMessage) => {
-    log(`A message by **${oldMessage.author.tag} (${oldMessage.author.id})** has been edited.\n**Old:** ${oldMessage.content}\n**New:** ${newMessage.content}`);
-});
+
     
