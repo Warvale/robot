@@ -7,7 +7,8 @@ const timestamp = require(`console-timestamp`);
 const config = require(`./config.json`);
 const prefix = config.prefix;
 // USE TOKEN FROM FILE TO LOGIN
-client.login(require(`./token`));
+client.login(require("./token"));
+exports.client = client;
 
 /*
 - All strings must be template literals (` `).
