@@ -10,7 +10,7 @@ const prefix = config.prefix;
 const embed = new Discord.MessageEmbed();
 // USE TOKEN FROM FILE TO LOGIN
 client.login(require("./token"));
-
+exports.client = client;
 
 client.on('ready', () => {
     console.log(`Warvale bot is now ready to serve ${client.users.size} Warvale players.\nThis bot was made by Warvale and is not to be self-hosted.`);
