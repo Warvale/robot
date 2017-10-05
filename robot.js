@@ -45,6 +45,10 @@ client.on(`message`, (msg) => {
         msg.channel.send({ embed: embed });
     } else
 
+    if (msg.content.startsWith(prefix + `debug`)) {
+        if (msg.author.id === "250536623270264833" || "142244934139904000") {
+            embed.setImage();
+        }
     }
 
 
