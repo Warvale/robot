@@ -66,7 +66,7 @@ client.on(`message`, (msg) => {
 var log = function(content) {
     if (!client.guilds.first().channels.find(`name`, `warvale-bot-logs`)) return;
     var now = new Date();
-    var logChannel = client.guilds.first().channels.find(`name`, `warvale-bot-logs`);
+    var logChannel = client.guilds.first().channels.find(`name`, config.logChannel);
     logChannel.send(`\`[${'hh:mm:ss'.timestamp}]\` ${content}`);
 }
     
@@ -74,5 +74,8 @@ client.on(`messageDelete`, (msg) => {
     log(`A message by ${msg.author.tag} (${msg.author.id}) has been removed.\n**Content:** ${msg.content}`);
 });
 
+client.on(`guildMemberAdd`, (member) => {
+    log(`A new member called **${member.user.tag} (${member.user.id})** has joined the server!\n**Account created:** ${member.user.createdAt}.`);
+});
 
     

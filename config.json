@@ -1,3 +1,4 @@
 {
-    "prefix":"!"
+    "prefix":"!",
+    "logChannel":"warvale-bot-logs"
 }
