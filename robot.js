@@ -81,4 +81,8 @@ client.on(`guildMemberAdd`, (member) => {
 client.on(`guildMemberRemove`, (member) => {
     log(`A member called **${member.user.tag} (${member.user.id})** has left the server.\n**Joined:** ${member.joinedAt}.`);
 });
+
+client.on(`messageUpdate`, (oldMessage, newMessage) => {
+    log(`A message by **${oldMessage.author.tag} (${oldMessage.author.id})** has been edited.\n**Old:** ${oldMessage.content}\n**New:** ${newMessage.content}`);
+});
     
