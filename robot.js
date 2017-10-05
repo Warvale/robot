@@ -57,5 +57,6 @@ client.on(`message`, (msg) => {
         embed.setDescription(cmds);
         msg.channel.send({ embed: embed });
     }
+
     
 });
