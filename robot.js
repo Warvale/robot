@@ -7,7 +7,6 @@ const animals = require(`relevant-animals`);
 // BOT STUFF, NOT DEPENDENCIES
 const config = require(`./config.json`);
 const prefix = config.prefix;
-const embed = new Discord.MessageEmbed();
 // USE TOKEN FROM FILE TO LOGIN
 client.login(require(`./token`));
 
@@ -32,12 +31,15 @@ client.on(`message`, (msg) => {
     if (msg.author.bot) return;
 
     // MISCELLANEOUS COMMANDS
+    if (msg.content.toLowerCase().startsWith(prefix + `ping`)) {
+        var embed = new Discord.MessageEmbed();
         embed.setColor(`0xf56d05`);
-        embed.setDescription(`Pong! Use \`${config.prefix}help\` for commands.`);
+        embed.setDescription(`Pong! Use \`${prefix}help\` for commands.`);
         msg.channel.send({ embed: embed });
     } else 
 
-    if (msg.content.startsWith(prefix + `about`)) {
+    if (msg.content.toLowerCase().startsWith(prefix + `about`)) {
+        var embed = new Discord.MessageEmbed();
         embed.setColor(`0xf56d05`);
         embed.setDescription(`Warvale is an upcoming Minecraft network featuring PVP games.`);
         embed.addField(`Players`, msg.guild.members.size, true);
@@ -45,12 +47,22 @@ client.on(`message`, (msg) => {
         msg.channel.send({ embed: embed });
     } else
 
-    if (msg.content.startsWith(prefix + `debug`)) {
-        if (msg.author.id === "250536623270264833" || "142244934139904000") {
-            embed.setImage();
-        }
+    // if (msg.content.toLowerCase().startsWith(prefix + `debug`)) {
+    //     if (msg.author.id === "250536623270264833" || "142244934139904000") {
+    //         embed.setImage();
+    //     }
+    // } else
+
+    if (msg.content.toLowerCase().startsWith(prefix + `help`)) {
+        var embed = new Discord.MessageEmbed();
+        var cmds = [
+            `**__Oh no! You need help with the Warvale bot? I gotchu fam!__** [prefix: ${prefix}]`,
+            `**${prefix}about** - shows information about Warvale and this bot.`,
+            `**${prefix}ping** - pong! (self explanatory, eh?)`
+        ].join(`\n`);
+        embed.setColor(`0xf56d05`);
+        embed.setDescription(cmds);
+        msg.channel.send({ embed: embed });
     }
-
-
     
 });
