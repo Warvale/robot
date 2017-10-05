@@ -71,11 +71,14 @@ var log = function(content) {
 }
     
 client.on(`messageDelete`, (msg) => {
-    log(`A message by ${msg.author.tag} (${msg.author.id}) has been removed.\n**Content:** ${msg.content}`);
+    log(`A message by **${msg.author.tag} (${msg.author.id})** has been removed.\n**Content:** ${msg.content}`);
 });
 
 client.on(`guildMemberAdd`, (member) => {
-    log(`A new member called **${member.user.tag} (${member.user.id})** has joined the server!\n**Account created:** ${member.user.createdAt}.`);
+    log(`A new member called **${member.user.tag} (${member.user.id})** has joined the server.\n**Account created:** ${member.user.createdAt}.`);
 });
 
+client.on(`guildMemberRemove`, (member) => {
+    log(`A member called **${member.user.tag} (${member.user.id})** has left the server.\n**Joined:** ${member.joinedAt}.`);
+});
     
