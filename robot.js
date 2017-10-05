@@ -17,10 +17,10 @@ exports.client = client;
 
 
 client.on(`ready`, () => {
-    console.log(`Warvale bot is now ready to serve ${client.users.size} Warvale players.\nThis bot was made by Warvale and is not to be self-hosted.`);
-    client.user.setActivity(`with ${client.users.size} Warvalers!`);
+    console.log(`Warvale bot is now ready to serve ${client.guilds.first().memberCount} Warvale players.\nThis bot was made by Warvale and is not to be self-hosted.`);
+    client.user.setActivity(`with ${client.guilds.first().memberCount} Warvalers!`);
     client.setInterval(()=>{
-        client.user.setActivity(`with ${client.users.size} Warvalers!`);
+        client.user.setActivity(`with ${client.guilds.first().memberCount} Warvalers!`);
     }, 1000*60*5);
 });
 
