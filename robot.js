@@ -70,14 +70,19 @@ var log = function(content) {
     logChannel.send(`\`[${'hh:mm:ss'.timestamp}]\` ${content}`);
 }
     
+
+// MESSAGE EVENTS
 client.on(`messageDelete`, (msg) => {
+    if (msg.author.bot) return;
     log(`A message by **${msg.author.tag} (${msg.author.id})** has been removed.\n**Content:** ${msg.content}`);
 });
 
 client.on(`messageUpdate`, (oldMessage, newMessage) => {
+    if (oldMessage.author.bot) return;
     log(`A message by **${oldMessage.author.tag} (${oldMessage.author.id})** has been edited.\n**Old:** ${oldMessage.content}\n**New:** ${newMessage.content}`);
 });
 
+// GUILD EVENTS
 client.on(`guildMemberAdd`, (member) => {
     log(`A new member called **${member.user.tag} (${member.user.id})** has joined the server.\n**Account created:** ${member.user.createdAt}.`);
 });
