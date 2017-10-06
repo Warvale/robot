@@ -120,17 +120,9 @@ client.on(`guildMemberRemove`, (member) => {
 client.on(`guildMemberUpdate`, (oldMember, newMember) => {
     if (newMember.nickname === oldMember.nickname) return;
     return log(`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their nickname updated.\n**Old:** ${oldMember.nickname}\n**New:** ${newMember.nickname}`);
-    if (newMember.roles === oldMember.roles) return;
-    return log (`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their roles updated.\n**Old:** ${oldMember.roles.map(r => r.name)}\n**New:** ${newMember.roles.map(r => r.name)}`);
+    // if (newMember.roles === oldMember.roles) return;
+    // return log (`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their roles updated.\n**Old:** ${oldMember.roles.map(r => r.name)}\n**New:** ${newMember.roles.map(r => r.name)}`);
 });
 
 
     
-=======
-// USER EVENTS
-client.on(`userUpdate`, (oldUser, newUser) => {
-let oox = `User \`${newUser.tag}\` has changed, diffrences:
-${oldUser.avatarURL() !== newUser.avatarURL() ? `\nAvatar is now ${newUser.avatarURL()} (old: ${oldUser.avatarURL()})` : ``}${oldUser.tag !== newUser.tag ? `\nUser tag is now ${newUser.tag} (old: ${oldUser.tag})` : ``}`;
-log(oox);
-});
->>>>>>> e7a556242e5bab2e1234d138f1722e2483e0fbb3
