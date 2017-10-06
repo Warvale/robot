@@ -14,9 +14,6 @@ module.exports = {
         embed.setColor(`0xf56d05`);
         embed.setDescription(cmds);
         msg.channel.send({ embed: embed });
-        if(args){
-            msg.channel.sendMessage( `note that ${prefix}help takes no arguments!`);
-        }
     }
 
 };
