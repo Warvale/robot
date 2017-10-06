@@ -120,7 +120,8 @@ client.on(`guildMemberRemove`, (member) => {
 client.on(`guildMemberUpdate`, (oldMember, newMember) => {
     if (newMember.nickname === oldMember.nickname) return;
     return log(`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their nickname updated.\n**Old:** ${oldMember.nickname}\n**New:** ${newMember.nickname}`);
-    
+    if (newMember.roles === oldMember.roles) return;
+    return log (`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their roles updated.\n**Old:** ${oldMember.roles.map(r => r.name)}\n**New:** ${newMember.roles.map(r => r.name)}`);
 });
 
 
