@@ -117,5 +117,11 @@ client.on(`guildMemberRemove`, (member) => {
     log(`A member called **${member.user.tag} (${member.user.id})** has left the server.\n**Joined:** ${member.joinedAt}.`);
 });
 
+client.on(`guildMemberUpdate`, (oldMember, newMember) => {
+    if (newMember.nickname === oldMember.nickname) return;
+    log(`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their nickname updated.\n**Old:** ${oldMember.nickname}\n**New:** ${newMember.nickname}`);
+    return;
+});
+
 
     
