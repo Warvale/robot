@@ -6,7 +6,6 @@ const timestamp = require(`console-timestamp`);
 // BOT STUFF, NOT DEPENDENCIES
 const config = require(`./config.json`);
 const prefix = config.prefix;
-//require(`./log/LogListener`);
 // USE TOKEN FROM FILE TO LOGIN
 client.login(require("./token"));
 exports.client = client;
