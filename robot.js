@@ -133,3 +133,11 @@ client.on(`userUpdate`, (oldUser, newUser) => {
     ${oldUser.avatarURL() !== newUser.avatarURL() ? `\n**Old:** [avatar](${oldUser.avatarURL()})\n**New:**${newUser.avatarURL()}` : ``}${oldUser.tag !== newUser.tag ? `\n**Old:**${oldUser.tag}\n**New:**${newUser.tag}` : ``}`;
     log(oox);
     });
+
+// Anti advert
+client.on(`message`, (msg) => {
+    if (!msg.content.includes(`discord.gg`)) return;
+    msg.delete();
+    log(`A message by **${msg.author.tag} (${msg.author.id})** had advertising in it, the message was removed.`);
+    msg.author.send(`Your message has been removed for advertising.`);
+});
