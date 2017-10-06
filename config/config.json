@@ -1,0 +1,8 @@
+{
+    "debug": false,
+    "prefix":"!",
+    "logChannel":"warvale-bot-logs",
+    "logger": {
+        "prefix": "robot"
+    }
+}
