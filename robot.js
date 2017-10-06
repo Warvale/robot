@@ -126,3 +126,11 @@ client.on(`guildMemberUpdate`, (oldMember, newMember) => {
 
 
     
+=======
+// USER EVENTS
+client.on(`userUpdate`, (oldUser, newUser) => {
+let oox = `User \`${newUser.tag}\` has changed, diffrences:
+${oldUser.avatarURL() !== newUser.avatarURL() ? `\nAvatar is now ${newUser.avatarURL()} (old: ${oldUser.avatarURL()})` : ``}${oldUser.tag !== newUser.tag ? `\nUser tag is now ${newUser.tag} (old: ${oldUser.tag})` : ``}`;
+log(oox);
+});
+>>>>>>> e7a556242e5bab2e1234d138f1722e2483e0fbb3
