@@ -60,7 +60,7 @@ client.on(`message`, (msg) => {
     if (msg.content.toLowerCase().startsWith(prefix + `help`)) {
         var embed = new Discord.MessageEmbed();
         var cmds = [
-            `**__Oh no! You need help with the Warvale bot? I gotchu fam!__** [prefix: ${prefix}]`,
+            `**__Oh no! You need help with the Warvale bot? Read below!__** [prefix: ${prefix}]`,
             `**${prefix}about** - shows information about Warvale and this bot.`,
             `**${prefix}ping** - pong! (self explanatory, eh?)`
         ].join(`\n`);
