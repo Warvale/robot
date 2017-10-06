@@ -137,7 +137,7 @@ client.on(`userUpdate`, (oldUser, newUser) => {
 // Anti advert
 client.on(`message`, (msg) => {
     if (msg.content.includes(`discord.gg`) || msg.content.includes(`discordapp.com/invite`)) {
-    msg.delete(100);
+    msg.delete(500);
     log(`A message by **${msg.author.tag} (${msg.author.id})** had advertising in it, the message was removed.`);
     msg.author.send(`Your message has been removed for advertising.`);
     }
