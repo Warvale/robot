@@ -141,6 +141,6 @@ client.on(`message`, (msg) => {
     if (msg.content.includes("discordapp") && msg.content.includes("invite")) return;
     msg.delete(500);
     log(`A message by **${msg.author.tag} (${msg.author.id})** had advertising in it, the message was removed.`);
-    msg.author.send(`Your message has been removed for advertising.`);
+    msg.reply(`Your message has been removed for advertising.`).then((m)=>{m.delete(1000)});
     
 });
