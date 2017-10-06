@@ -119,8 +119,8 @@ client.on(`guildMemberRemove`, (member) => {
 
 client.on(`guildMemberUpdate`, (oldMember, newMember) => {
     if (newMember.nickname === oldMember.nickname) return;
-    log(`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their nickname updated.\n**Old:** ${oldMember.nickname}\n**New:** ${newMember.nickname}`);
-    return;
+    return log(`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their nickname updated.\n**Old:** ${oldMember.nickname}\n**New:** ${newMember.nickname}`);
+    
 });
 
 
