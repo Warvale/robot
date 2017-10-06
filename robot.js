@@ -104,18 +104,6 @@ client.on(`message`, (msg) => {
         };
     }
     
-    exports.conf = {
-        enabled: true,
-        guildOnly: false,
-        aliases: [],
-        permLevel: 2
-      };
-      
-      exports.help = {
-        name: 'ban',
-        description: 'Bans the mentioned user.',
-        usage: 'ban [mention] [reason]'
-      };
 
 // LOGGING HANDLING & EVENTS
 var log = function(content) {
