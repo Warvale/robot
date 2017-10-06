@@ -69,25 +69,6 @@ client.on(`message`, (msg) => {
         msg.channel.send({ embed: embed });
     } else
 
-    if (msg.content.toLowerCase().startsWith(prefix + ban)) {
-        exports.run = (client, message, args) => {
-            let reason = args.slice(1).join(` `)
-            let user = message.mentions.users.first();
-            if (reason.length < 1 ) return message.reply(`Please provide a reason for the ban.`);
-            if (!message.mentions.users.size < 1) return message.reply(`Please mention someone to ban them.`).catch(console.error);
-
-            if (!message.guild.member(user).bannable) return message.reply(`I cannot ban that user.`);
-            message.guild.ban(user, 2);
-            
-            exports.conf = {
-                enabled: true,
-                guildOnly: false,
-                aliases: [],
-                permLevel: 2
-            }
-        };
-    } else
-
     if (msg.content.toLowerCase().startsWith(prefix + `eval`)) {
         if (!msg.author.id === `250536623270264833`) return;
         try {
