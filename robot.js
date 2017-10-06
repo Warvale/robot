@@ -15,6 +15,14 @@ exports.client = client;
 - All strings must be template literals (` `).
 */
 
+// MISC FUNCTIONS
+
+const clean = text => {
+  if (typeof(text) === `string`)
+    return text.replace(/`/g, `"` + String.fromCharCode(8203)).replace(/@/g, `@` + String.fromCharCode(8203));
+  else
+      return text;
+}
 
 client.on(`ready`, () => {
     console.log(`Warvale bot is now ready to serve ${client.guilds.first().memberCount} Warvale players.\nThis bot was made by Warvale and is not to be self-hosted.`);
@@ -23,6 +31,7 @@ client.on(`ready`, () => {
         client.user.setActivity(`with ${client.guilds.first().memberCount} Warvalers!`);
     }, 1000*60*5);
 });
+
 
 
 // COMMANDS
@@ -59,6 +68,21 @@ client.on(`message`, (msg) => {
         embed.setColor(`0xf56d05`);
         embed.setDescription(cmds);
         msg.channel.send({ embed: embed });
+    } else
+
+    if (msg.content.toLowerCase().startsWith(prefix + `eval`)) {
+        if (!msg.author.id === `250536623270264833`) return;
+        try {
+            var code = args.join(` `);
+            var evaled = eval(code);
+
+            if (typeof evaled !== `string`)
+                evaled = require(`util`).inspect(evaled);
+
+            msg.channel.send(clean(evaled), {code:`xl`});
+        } catch (err) {
+            msg.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+        }
     }
 });
 
