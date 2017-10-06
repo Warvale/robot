@@ -12,9 +12,6 @@ module.exports = {
         embed.addField(`Links`, `[GitHub](https://github.com/Warvale/robot)\n[Warvale](https://warvale.net)\n[Twitter](https://twitter.com/warvalenetwork)`, true);
         msg.channel.send({ embed: embed });
 
-        if (args){
-            msg.channel.sendMessage( "note that !about takes no arguments!");
-        }
     }
 
 };
