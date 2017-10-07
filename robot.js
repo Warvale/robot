@@ -7,7 +7,7 @@ const timestamp = require(`console-timestamp`);
 const config = require(`./config.json`);
 const prefix = config.prefix;
 // USE TOKEN FROM FILE TO LOGIN
-client.login(require("./token"));
+client.login(require(`./token`));
 exports.client = client;
 
 /*
@@ -18,7 +18,7 @@ exports.client = client;
 
 const clean = text => {
   if (typeof(text) === `string`)
-    return text.replace(/`/g, `"` + String.fromCharCode(8203)).replace(/@/g, `@` + String.fromCharCode(8203));
+    return text.replace(/`/g, `\`` + String.fromCharCode(8203)).replace(/@/g, `@` + String.fromCharCode(8203));
   else
       return text;
 }
@@ -124,15 +124,14 @@ client.on(`guildMemberUpdate`, (oldMember, newMember) => {
 
 // USER EVENTS
 client.on(`userUpdate`, (oldUser, newUser) => {
-    let oox = `A member called **${newUser.tag} (${newUser.id})**
-    ${oldUser.avatarURL() !== newUser.avatarURL() ? `\n**Old:** [avatar](${oldUser.avatarURL()})\n**New:**${newUser.avatarURL()}` : ``}${oldUser.tag !== newUser.tag ? `\n**Old:**${oldUser.tag}\n**New:**${newUser.tag}` : ``}`;
-    log(oox);
-    });
+    if (newUser.avatar !== oldUser.avatar) { log(`A user called **${oldUser.tag} (${oldUser.id})** changed their avatar.\n\n**Old:** ${oldUser.avatarURL()}\n**New:** ${newUser.avatarURL()}`); }
+    if (newUser.username !== oldUser.username) { log(`A user called **${oldUser.tag} (${oldUser.id})** changed their username.\n\n**Old:** ${oldUser.username}\n**New:** ${newUser.username}`); }
+});
 
-// Anti advert
+// ANTI ADVERTISEMENT
 client.on(`message`, (msg) => {
     let mc = msg.content.toLowerCase();
-    if (!(mc.includes(`discord.gg`) || mc.includes(`discordapp.com/invite`) || (mc.includes("discord") && mc.includes("gg") || ( (mc.includes("discordapp") || mc.includes("discord") ) && mc.includes("invite") )))) return;
+    if (!(mc.includes(`discord.gg`) || mc.includes(`discordapp.com/invite`) || (mc.includes(`discord`) && mc.includes(`gg`) || ( (mc.includes(`discordapp`) || mc.includes(`discord`) ) && mc.includes(`invite`) )))) return;
     log(`A message by **${msg.author.tag} (${msg.author.id})** had advertising in it, the message was removed.`);
     msg.delete(500);
 });
