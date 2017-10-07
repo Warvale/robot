@@ -126,7 +126,6 @@ client.on(`guildMemberUpdate`, (oldMember, newMember) => {
 
 // USER EVENTS
 client.on(`userUpdate`, (oldUser, newUser) => {
-    let oox = `User \`${newUser.tag}\` has changed, diffrences:
-    ${oldUser.avatarURL() !== newUser.avatarURL() ? `\nAvatar is now ${newUser.avatarURL()} (old: ${oldUser.avatarURL()})` : ``}${oldUser.tag !== newUser.tag ? `\nUser tag is now ${newUser.tag} (old: ${oldUser.tag})` : ``}`;
-    log(oox);
+    if (newUser.avatar === oldUser.avatar) return;
+    return log(`A user called **${oldUser.tag} (${oldUser.id})** has had their avatar changed.\n**Old:** ${oldUser.avatarURL()}\n**New:** ${newUser.avatarURL()}`);
 });
