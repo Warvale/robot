@@ -100,32 +100,30 @@ var log = function(content) {
 // MESSAGE EVENTS
 client.on(`messageDelete`, (msg) => {
     if (msg.author.bot) return;
-    log(`A message by **${msg.author.tag} (${msg.author.id})** has been removed.\n**Content:** ${msg.content}`);
+    log(`A message by **${msg.author.tag} (${msg.author.id})** was removed.\n\n**Content:** ${msg.content}`);
 });
 
 client.on(`messageUpdate`, (oldMessage, newMessage) => {
     if (oldMessage.author.bot) return;
-    log(`A message by **${oldMessage.author.tag} (${oldMessage.author.id})** has been edited.\n**Old:** ${oldMessage.content}\n**New:** ${newMessage.content}`);
+    log(`A message by **${oldMessage.author.tag} (${oldMessage.author.id})** was edited.\n\n**Old:** ${oldMessage.content}\n**New:** ${newMessage.content}`);
 });
 
 // GUILD EVENTS
 client.on(`guildMemberAdd`, (member) => {
-    log(`A new member called **${member.user.tag} (${member.user.id})** has joined the server.\n**Account created:** ${member.user.createdAt}.`);
+    log(`A new member called **${member.user.tag} (${member.user.id})** joined the server.\n\n**Account created:** ${member.user.createdAt}.`);
 });
 
 client.on(`guildMemberRemove`, (member) => {
-    log(`A member called **${member.user.tag} (${member.user.id})** has left the server.\n**Joined:** ${member.joinedAt}.`);
+    log(`A member called **${member.user.tag} (${member.user.id})** left the server.\n\n**Joined:** ${member.joinedAt}.`);
 });
 
 client.on(`guildMemberUpdate`, (oldMember, newMember) => {
-    if (newMember.nickname === oldMember.nickname) return;
-    return log(`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their nickname updated.\n**Old:** ${oldMember.nickname}\n**New:** ${newMember.nickname}`);
-    // if (newMember.roles === oldMember.roles) return;
-    // return log (`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their roles updated.\n**Old:** ${oldMember.roles.map(r => r.name)}\n**New:** ${newMember.roles.map(r => r.name)}`);
+    if (newMember.nickname !== oldMember.nickname) { log(`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their nickname updated.\n\n**Old:** ${oldMember.nickname}\n**New:** ${newMember.nickname}`); }
+    // if (newMember.roles !== oldMember.roles) { log (`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their roles updated.\n\n**Old:** \`\`\`${oldMember.roles.map(r => `${r.name}\n`)}\`\`\`\n**New:** \`\`\`${newMember.roles.map(r =>  `${r.name}\n`)}\`\`\``); }
 });
 
 // USER EVENTS
 client.on(`userUpdate`, (oldUser, newUser) => {
-    if (newUser.avatar === oldUser.avatar) return;
-    return log(`A user called **${oldUser.tag} (${oldUser.id})** has had their avatar changed.\n**Old:** ${oldUser.avatarURL()}\n**New:** ${newUser.avatarURL()}`);
+    if (newUser.avatar !== oldUser.avatar) { log(`A user called **${oldUser.tag} (${oldUser.id})** changed their avatar.\n\n**Old:** ${oldUser.avatarURL()}\n**New:** ${newUser.avatarURL()}`); }
+    if (newUser.username !== oldUser.username) { log(`A user called **${oldUser.tag} (${oldUser.id})** changed their username.\n\n**Old:** ${oldUser.username}\n**New:** ${newUser.username}`); }
 });
