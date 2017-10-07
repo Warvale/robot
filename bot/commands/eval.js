@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const Discord = require(`discord.js`);
 
 const clean = text => {
     if (typeof(text) === `string`)
@@ -9,7 +9,7 @@ const clean = text => {
 
 module.exports = {
 
-    description: "responds pong, useful for checking if bot is alive",
+    description: `Evaluates Javascript, reserved for Bot Administrators.`,
 
     process: function (bot, msg, prefix, args, isEdit) {
         if (isEdit) return; //Don't rerun for safety precautions

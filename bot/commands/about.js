@@ -1,8 +1,8 @@
-const Discord = require('discord.js');
+const Discord = require(`discord.js`);
 
 module.exports = {
 
-    description: "Gives info about Warvale",
+    description: `Shows information about Warvale.`,
 
     process: function (bot, msg, prefix, args, isEdit) {
         let embed = new Discord.MessageEmbed();

@@ -4,7 +4,6 @@ let Permissions = {};
 
 exports.init = () => {
 
-    //load custom permissions
     try{
         Permissions = require("../../config/permissions.json");
     } catch(e){

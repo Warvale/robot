@@ -5,8 +5,8 @@ module.exports = {
     "ping": require('../commands/ping'),
     "eval": require('../commands/eval'),
 
-    //punish commands
-    "ban": require('../commands/punish/ban')
+    //Moderation
+    "ban": require('../commands/moderation/ban')
 
 };
 
