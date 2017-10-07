@@ -3,6 +3,7 @@
 This is the official Warvale Discord bot used on the Warvale [Discord guild.](https://discord.gg/TCQbbjF)  
 This bot is made in NodeJS utilizing the Discord API through the Discord.js library.
 
+
 ### Agreement
 - You will not self-host this bot without Warvale's permission.
 - You will not resell, modify or distribute this bot publicly.
