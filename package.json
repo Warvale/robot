@@ -2,7 +2,7 @@
   "name": "robot",
   "version": "1.0.0",
   "description": "Discord bot made in Node.js (Discord.js lib) by Warvale.",
-  "main": "robot.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,7 +22,6 @@
     "discord.js": "github:hydrabolt/discord.js",
     "djs-collection-persistent": "^0.1.4",
     "install": "^0.10.1",
-    "npm": "^5.4.2",
-    "relevant-animals": "^1.1.3"
+    "npm": "^5.4.2"
   }
 }
