@@ -137,8 +137,8 @@ client.on(`userUpdate`, (oldUser, newUser) => {
 
 // ANTI ADVERTISEMENT
 client.on(`message`, (msg) => {
-    let mc = msg.content.toLowerCase();
+    var mc = msg.content.toLowerCase();
     if (!(mc.includes(`discord.gg`) || mc.includes(`discordapp.com/invite`) || (mc.includes(`discord`) && mc.includes(`gg`) || ( (mc.includes(`discordapp`) || mc.includes(`discord`) ) && mc.includes(`invite`) )))) return;
-    log(`A message by **${msg.author.tag} (${msg.author.id})** had advertising in it, the message was removed.`);
+    log(`A message by **${msg.author.tag} (${msg.author.id})** had potential advertising in it, the message was removed.`);
     msg.delete(500);
 });
