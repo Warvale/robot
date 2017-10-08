@@ -104,6 +104,21 @@ client.on(`message`, (msg) => {
         muteMember.setMute(true, reason);
         msg.channel.send(`:white_check_mark: ${muteMember.user.tag} was successfully muted (\`${reason}\`).`);
         log(`A member called **${muteMember.user.tag} (${muteMember.user.id})** was muted by **${msg.author.tag} (${msg.author.id})**.\n\n**Reason:** ${reason}`);
+    } else
+
+    if (msg.content.toLowerCase().startsWith(prefix + `unmute`)) {
+        var mutedRole = msg.guild.roles.find(`name`, `Muted`).id;
+        var reason = result.split(` `).slice(1).join(` `);
+        var unmuteMember = msg.mentions.members.first();   
+        if (!isStaff(msg.member)) return msg.channel.send(`:x: Insufficient permission.`);
+        if (!unmuteMember) return msg.channel.send(`:x: You must provide a member to unmute.`);
+        if (!reason) return msg.channel.send(`:x: You must provide a reason for the unmute.`);
+        if (!unmuteMember.serverMute) return msg.channel.send(`:x: This member is not currently muted.`);
+        if (!unmuteMember.roles.has(mutedRole)) return msg.channel.send(`:x: This member is not currently muted.`);
+        unmuteMember.removeRole(mutedRole).catch(e => msg.channel.send(e));
+        unmuteMember.setMute(false, reason);
+        msg.channel.send(`:white_check_mark: ${unmuteMember.user.tag} was successfully unmuted (\`${reason}\`).`);
+        log(`A member called **${unmuteMember.user.tag} (${unmuteMember.user.id})** was unmuted by **${msg.author.tag} (${msg.author.id})**.\n\n**Reason:** ${reason}`);
     }
 
 });
