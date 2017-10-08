@@ -88,6 +88,22 @@ client.on(`message`, (msg) => {
     if (msg.content.toLowerCase().startsWith(prefix + `dab`)) {
         if (result.toLowerCase() === "-h") return msg.channel.send(`Dab incoming...`).then(m => m.edit(`<o/ on them haters!`).then(m => m.edit(`**<o/** on them haters!`)));
         msg.channel.send(`Dab incoming...`).then(m => m.edit(`<o/`).then(m => m.edit(`**<o/**`)));
+    } else 
+
+    // MODERATION COMMANDS
+    if (msg.content.toLowerCase().startsWith(prefix + `mute`)) {
+        var mutedRole = msg.guild.roles.find(`name`, `Muted`).id;
+        var reason = result.split(` `).slice(1).join(` `);
+        var muteMember = msg.mentions.members.first();   
+        if (!isStaff(msg.member)) return msg.channel.send(`:x: Insufficient permission.`);
+        if (!muteMember) return msg.channel.send(`:x: You must provide a member to mute.`);
+        if (!reason) return msg.channel.send(`:x: You must provide a reason for the mute.`);
+        if (muteMember.serverMute) return msg.channel.send(`:x: This member is already muted. Use !unmute to unmute them.`);
+        if (muteMember.roles.has(mutedRole)) return msg.channel.send(`:x: This member is already muted. Use !unmute to unmute them.`);
+        muteMember.addRole(mutedRole).catch(e => msg.channel.send(e));
+        muteMember.setMute(true, reason);
+        msg.channel.send(`:white_check_mark: ${muteMember.user.tag} was successfully muted (\`${reason}\`).`);
+        log(`A member called **${muteMember.user.tag} (${muteMember.user.id})** was muted by **${msg.author.tag} (${msg.author.id})**.\n\n**Reason:** ${reason}`);
     }
 
 });
