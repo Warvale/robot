@@ -86,6 +86,7 @@ client.on(`message`, (msg) => {
 
     // FUN COMMANDS
     if (msg.content.toLowerCase().startsWith(prefix + `dab`)) {
+        if (result.toLowerCase() === "-h") return msg.channel.send(`Dab incoming...`).then(m => m.edit(`<o/ on them haters!`).then(m => m.edit(`**<o/** on them haters!`)));
         msg.channel.send(`Dab incoming...`).then(m => m.edit(`<o/`).then(m => m.edit(`**<o/**`)));
     }
 
