@@ -149,7 +149,11 @@ client.on(`guildMemberRemove`, (member) => {
 });
 
 client.on(`guildMemberUpdate`, (oldMember, newMember) => {
-    if (newMember.nickname !== oldMember.nickname) { log(`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their nickname updated.\n\n**Old:** ${oldMember.nickname}\n**New:** ${newMember.nickname}`); }
+    if (newMember.nickname !== oldMember.nickname) {
+        if (!oldMember.nickname) return log(`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their nickname updated.\n\n**Old:** ${oldMember.displayName}\n**New:** ${newMember.nickname}`);
+        if (!newMember.nickname) return log(`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their nickname updated.\n\n**Old:** ${oldMember.nickname}\n**New:** ${newMember.displayName}`);
+        log(`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their nickname updated.\n\n**Old:** ${oldMember.nickname}\n**New:** ${newMember.nickname}`);
+    }
     // if (newMember.roles !== oldMember.roles) { log (`A member called **${oldMember.user.tag} (${oldMember.user.id})** has had their roles updated.\n\n**Old:** \`\`\`${oldMember.roles.map(r => `${r.name}\n`)}\`\`\`\n**New:** \`\`\`${newMember.roles.map(r =>  `${r.name}\n`)}\`\`\``); }
 });
 
