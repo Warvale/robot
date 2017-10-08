@@ -112,6 +112,7 @@ client.on(`messageDelete`, (msg) => {
 
 client.on(`messageUpdate`, (oldMessage, newMessage) => {
     if (oldMessage.author.bot) return;
+    if (oldMessage.content === newMessage.content) return;
     log(`A message by **${oldMessage.author.tag} (${oldMessage.author.id})** was edited.\n\n**Old:** ${oldMessage.content}\n**New:** ${newMessage.content}`);
 });
 
