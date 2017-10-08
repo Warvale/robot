@@ -86,9 +86,9 @@ client.on(`message`, (msg) => {
 
     // FUN COMMANDS
     if (msg.content.toLowerCase().startsWith(prefix + `dab`)) {
-        msg.channel.send(`Dab incoming...`).then(m => m.edit(`<o/`));
+        msg.channel.send(`Dab incoming...`).then(m => m.edit(`<o/`).then(m => m.edit(`**<o/**`)));
     }
-    
+
 });
 
 // LOGGING HANDLING & EVENTS
