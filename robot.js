@@ -102,6 +102,13 @@ var log = function(content) {
     embed.setDescription(`\`[${'hh:mm:ss'.timestamp}]\` ${content}`);
     logChannel.send({ embed: embed });
 }
+
+// FUNCTION TO CHECK IF MEMBER IS A STAFF MEMBER
+var isStaff = function(member) {
+    const staffRole = member.guild.roles.find(`name`, config.staffRole).id;
+    if (!member.roles.has(staffRole)) return false;
+    return true;
+}
     
 
 // MESSAGE EVENTS
