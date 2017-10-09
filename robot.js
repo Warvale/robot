@@ -98,7 +98,6 @@ client.on(`message`, (msg) => {
         if (!isStaff(msg.member)) return msg.channel.send(`:x: Insufficient permission.`);
         if (!muteMember) return msg.channel.send(`:x: You must provide a member to mute.`);
         if (!reason) return msg.channel.send(`:x: You must provide a reason for the mute.`);
-        if (muteMember.serverMute) return msg.channel.send(`:x: This member is already muted. Use !unmute to unmute them.`);
         if (muteMember.roles.has(mutedRole)) return msg.channel.send(`:x: This member is already muted. Use !unmute to unmute them.`);
         muteMember.addRole(mutedRole).catch(e => msg.channel.send(e));
         muteMember.setMute(true, reason);
@@ -113,7 +112,6 @@ client.on(`message`, (msg) => {
         if (!isStaff(msg.member)) return msg.channel.send(`:x: Insufficient permission.`);
         if (!unmuteMember) return msg.channel.send(`:x: You must provide a member to unmute.`);
         if (!reason) return msg.channel.send(`:x: You must provide a reason for the unmute.`);
-        if (!unmuteMember.serverMute) return msg.channel.send(`:x: This member is not currently muted.`);
         if (!unmuteMember.roles.has(mutedRole)) return msg.channel.send(`:x: This member is not currently muted.`);
         unmuteMember.removeRole(mutedRole).catch(e => msg.channel.send(e));
         unmuteMember.setMute(false, reason);
