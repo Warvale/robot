@@ -106,7 +106,7 @@ client.on(`message`, (msg) => {
     if (msg.content.toLowerCase().startsWith(prefix + `mute`)) {
         var mutedRole = msg.guild.roles.find(`name`, `Muted`).id;
         var reason = result.split(` `).slice(1).join(` `);
-        var muteMember = msg.mentions.members.first();   
+        var muteMember = msg.mentions.members.first() || msg.guild.members.get(args[0]);
         if (!isStaff(msg.member)) return msg.channel.send(`:x: Insufficient permission.`);
         if (!muteMember) return msg.channel.send(`:x: You must provide a member to mute.`);
         if (!reason) return msg.channel.send(`:x: You must provide a reason for the mute.`);
@@ -120,7 +120,7 @@ client.on(`message`, (msg) => {
     if (msg.content.toLowerCase().startsWith(prefix + `unmute`)) {
         var mutedRole = msg.guild.roles.find(`name`, `Muted`).id;
         var reason = result.split(` `).slice(1).join(` `);
-        var unmuteMember = msg.mentions.members.first();   
+        var unmuteMember = msg.mentions.members.first() || msg.guild.members.get(args[0]);
         if (!isStaff(msg.member)) return msg.channel.send(`:x: Insufficient permission.`);
         if (!unmuteMember) return msg.channel.send(`:x: You must provide a member to unmute.`);
         if (!reason) return msg.channel.send(`:x: You must provide a reason for the unmute.`);
