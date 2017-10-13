@@ -59,11 +59,23 @@ client.on(`message`, (msg) => {
 
     if (msg.content.toLowerCase().startsWith(prefix + `help`)) {
         var embed = new Discord.MessageEmbed();
-        var cmds = [
-            `**__Oh no! You need help with the Warvale bot? I gotchu fam!__** [prefix: ${prefix}]`,
-            `**${prefix}about** - shows information about Warvale and this bot.`,
-            `**${prefix}ping** - pong! (self explanatory, eh?)`
-        ].join(`\n`);
+        if (isStaff(msg.member)) {
+            var cmds = [
+                `**__Oh no! You need help with the Warvale bot? I gotchu fam!__** [prefix: ${prefix}]`,
+                `**${prefix}about** - shows information about Warvale and this bot.`,
+                `**${prefix}ping** - pong! (self explanatory, eh?)`,
+                `**${prefix}dab [-h]** - dabs; on the haters is optional.`,
+                `**${prefix}mute <member> <reason>** - mutes the member for the reason.`,
+                `**${prefix}unmute <member> <reason>** - unmutes the member for the reason.`
+            ].join(`\n`);
+        } else {
+            var cmds = [
+                `**__Oh no! You need help with the Warvale bot? I gotchu fam!__** [prefix: ${prefix}]`,
+                `**${prefix}about** - shows information about Warvale and this bot.`,
+                `**${prefix}ping** - pong! (self explanatory, eh?)`,
+                `**${prefix}dab [-h]** - dabs; on the haters is optional.`
+            ].join(`\n`);
+        }
         embed.setColor(`0xf56d05`);
         embed.setDescription(cmds);
         msg.channel.send({ embed: embed });
