@@ -92,7 +92,8 @@ client.on(`message`, (msg) => {
                 `**${prefix}ip** - displays the IP to Warvale Network.`,       
                 `**${prefix}mute <member mention or ID> <reason>** - mutes the member for the reason.`,
                 `**${prefix}unmute <member mention or ID> <reason>** - unmutes the member for the reason.`,
-                `**${prefix}kick <member mention or ID> <reason>** - kicks the member for the reason.`
+                `**${prefix}kick <member mention or ID> <reason>** - kicks the member for the reason.`,
+                `**${prefix}ban <member mention or ID> <reason>** - bans the member for the reason.`
             ].join(`\n`);
         } else {
             var cmds = [
