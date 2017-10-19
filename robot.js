@@ -168,6 +168,18 @@ client.on(`message`, (msg) => {
         kickMember.kick(`${msg.author.tag} - ${reason}`);
         msg.channel.send(`:white_check_mark: ${kickMember.user.tag} was successfully kicked (\`${reason}\`).`);
         log(`A member called **${kickMember.user.tag} (${kickMember.user.id})** was kicked by **${msg.author.tag} (${msg.author.id})**.\n\n**Reason:** ${reason}`);
+    } else 
+
+    if (msg.content.toLowerCase().startsWith(prefix + `ban`)) {
+        var reason = result.split(` `).slice(1).join(` `);
+        var banMember = msg.mentions.users.first() || msg.guild.members.get(args[0]);
+        if (!isStaff(msg.member)) return msg.channel.send(`:x: Insufficient permission.`);
+        if (!banMember) return msg.channel.send(`:x: You must provide a member to ban.`);
+        if (!reason) return msg.channel.send(`:x: You must provide a reason for the ban.`);
+        if (!banMember.bannable) return msg.channel.send(`:x: This member cannot be banned at this time; are they the server owner? do they have higher roles?`);
+        banMember.ban(`${msg.author.tag} - ${reason}`);
+        msg.channel.send(`:white_check_mark: ${banMember.user.tag} was successfully banned (\`${reason}\`).`);
+        log(`A member called **${banMember.user.tag} (${banMember.user.id})** was banned by **${msg.author.tag} (${msg.author.id})**.\n\n**Reason:** ${reason}`);
     }
     
 
