@@ -2,7 +2,7 @@
 
     Copyright 2017 Warvale Network
     This bot is not to be self-hosted.
-    
+
 */
 
 
@@ -56,6 +56,14 @@ client.on(`message`, (msg) => {
 
     if (msg.author.bot) return;
 
+    // UTILITY COMMANDS
+    if (msg.content.toLowerCase().startsWith(prefix + `ip`)) {
+        var embed = new Discord.MessageEmbed();
+        embed.setColor(`0xf56d05`);
+        embed.setDescription(`The IP to Warvale Network is \`mc.warvale.net\`, version 1.8 to 1.12.2.`);
+        msg.channel.send({ embed: embed });
+    } else
+
     // MISCELLANEOUS COMMANDS
     if (msg.content.toLowerCase().startsWith(prefix + `ping`)) {
         var embed = new Discord.MessageEmbed();
@@ -81,6 +89,7 @@ client.on(`message`, (msg) => {
                 `**${prefix}about** - shows information about Warvale and this bot.`,
                 `**${prefix}ping** - pong! (self explanatory, eh?)`,
                 `**${prefix}dab [-h]** - dabs; on the haters is optional.`,
+                `**${prefix}ip** - displays the IP to Warvale Network.`,       
                 `**${prefix}mute <member> <reason>** - mutes the member for the reason.`,
                 `**${prefix}unmute <member> <reason>** - unmutes the member for the reason.`
             ].join(`\n`);
@@ -89,7 +98,8 @@ client.on(`message`, (msg) => {
                 `**__Oh no! You need help with the Warvale bot? I gotchu fam!__** [prefix: ${prefix}]`,
                 `**${prefix}about** - shows information about Warvale and this bot.`,
                 `**${prefix}ping** - pong! (self explanatory, eh?)`,
-                `**${prefix}dab [-h]** - dabs; on the haters is optional.`
+                `**${prefix}dab [-h]** - dabs; on the haters is optional.`,
+                `**${prefix}ip** - displays the IP to Warvale Network.`
             ].join(`\n`);
         }
         embed.setColor(`0xf56d05`);
