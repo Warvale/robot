@@ -90,8 +90,9 @@ client.on(`message`, (msg) => {
                 `**${prefix}ping** - pong! (self explanatory, eh?)`,
                 `**${prefix}dab [-h]** - dabs; on the haters is optional.`,
                 `**${prefix}ip** - displays the IP to Warvale Network.`,       
-                `**${prefix}mute <member> <reason>** - mutes the member for the reason.`,
-                `**${prefix}unmute <member> <reason>** - unmutes the member for the reason.`
+                `**${prefix}mute <member mention or ID> <reason>** - mutes the member for the reason.`,
+                `**${prefix}unmute <member mention or ID> <reason>** - unmutes the member for the reason.`,
+                `**${prefix}kick <member mention or ID> <reason>** - kicks the member for the reason.`
             ].join(`\n`);
         } else {
             var cmds = [
@@ -156,6 +157,19 @@ client.on(`message`, (msg) => {
         msg.channel.send(`:white_check_mark: ${unmuteMember.user.tag} was successfully unmuted (\`${reason}\`).`);
         log(`A member called **${unmuteMember.user.tag} (${unmuteMember.user.id})** was unmuted by **${msg.author.tag} (${msg.author.id})**.\n\n**Reason:** ${reason}`);
     }
+
+    if (msg.content.toLowerCase().startsWith(prefix + `kick`)) {
+        var reason = result.split(` `).slice(1).join(` `);
+        var kickMember = msg.mentions.members.first() || msg.guild.members.get(args[0]);
+        if (!isStaff(msg.member)) return msg.channel.send(`:x: Insufficient permission.`);
+        if (!kickMember) return msg.channel.send(`:x: You must provide a member to kick.`);
+        if (!reason) return msg.channel.send(`:x: You must provide a reason for the kick.`);
+        if (!kickMember.kickable) return msg.channel.send(`:x: This member cannot be kicked at this time; are they the server owner? do they have higher roles?`);
+        kickMember.kick(`${msg.author.tag} - ${reason}`);
+        msg.channel.send(`:white_check_mark: ${kickMember.user.tag} was successfully kicked (\`${reason}\`).`);
+        log(`A member called **${kickMember.user.tag} (${kickMember.user.id})** was kicked by **${msg.author.tag} (${msg.author.id})**.\n\n**Reason:** ${reason}`);
+    }
+    
 
 });
 
