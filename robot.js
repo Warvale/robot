@@ -1,3 +1,19 @@
+/*
+
+    Copyright 2017 Warvale Network
+    This bot is not to be self-hosted.
+    
+*/
+
+
+
+
+
+
+
+
+
+
 // DEPENDENCIES
 const Discord = require(`discord.js`);
 const client = new Discord.Client();
