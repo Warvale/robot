@@ -3,6 +3,7 @@ const Discord = require(`discord.js`);
 const client = new Discord.Client();
 const PersistentCollection = require(`djs-collection-persistent`);
 const timestamp = require(`console-timestamp`);
+const request = require(`request`);
 // BOT STUFF, NOT DEPENDENCIES
 const config = require(`./config.json`);
 const prefix = config.prefix;
@@ -63,10 +64,49 @@ client.on(`message`, (msg) => {
             `**__Oh no! You need help with the Warvale bot? I gotchu fam!__** [prefix: ${prefix}]`,
             `**${prefix}about** - shows information about Warvale and this bot.`,
             `**${prefix}ping** - pong! (self explanatory, eh?)`
+            `**${prefix}doom** - doom leaderboard - usage: ${prefix}doom <kills/embers/killstreak/deaths>`
         ].join(`\n`);
         embed.setColor(`0xf56d05`);
         embed.setDescription(cmds);
         msg.channel.send({ embed: embed });
+    } else
+
+
+    if (msg.content.toLowerCase().startsWith(prefix + `doom`)) {
+        if (!args[0]){
+            msg.channel.send(`Usage: ${prefix}doom <kills/embers/killstreak/deaths>`);
+            return
+        }
+        let cont = true;
+        let val;
+        switch(args[0].toLowerCase()){
+        case `kills`:
+        case `embers`:
+        case `killstreak`:
+        case `deaths`:
+        break;
+        default:
+        cont=false;
+        break;
+        }
+        if (!cont) {
+            msg.channel.send(`:x: Error!`);
+            return;
+        }
+        request(`http://warvale.net:3080/leaderboard/${args[0].toLowerCase()}`,(data)=>{
+        val = JSON.parse(data);
+        
+        let msg = `***\`Leaderboard for ${args[0].toUpperCase()}\`***`;
+        for (var i = 0; i < val.length; i++){
+            let cms = `\n#${i+1} `;
+            val.forEach((v,i)=>{
+                cms+=`${i.toUpperCase()}: ${v}`;
+            });
+            msg+=cms;
+        }
+        msg.channel.send(msg);
+        msg.channel.send({ embed: embed });
+    });
     } else
 
     if (msg.content.toLowerCase().startsWith(prefix + `eval`)) {
