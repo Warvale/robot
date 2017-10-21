@@ -111,6 +111,10 @@ client.on(`message`, (msg) => {
 
 
     if (msg.content.toLowerCase().startsWith(prefix + `doom`)) {
+        if (!isStaff(msg.member)){
+            msg.channel.send(`:x: This command is staff-only, because it contains bugs.`);
+            return;
+        }
         if (!args[0]){
             msg.channel.send(`Usage: ${prefix}doom <kills/embers/killstreak/deaths>`);
             return
