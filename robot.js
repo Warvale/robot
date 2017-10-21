@@ -143,7 +143,7 @@ client.on(`message`, (msg) => {
         for (var i = 0; i < val.length; i++){
             let cms = `\n#${i+1} `;
             val.forEach((v,i)=>{
-                cms+=`${i.toUpperCase()}: ${v}`;
+                cms+=`${i}: ${v}`;
             });
             msg+=cms;
         }
