@@ -139,15 +139,15 @@ client.on(`message`, (msg) => {
         val = JSON.parse(data);
         console.log(data,val);
 
-        let msg = `***\`Leaderboard for ${args[0].toUpperCase()}\`***`;
+        let _msg = `***\`Leaderboard for ${args[0].toUpperCase()}\`***`;
         for (var i = 0; i < val.length; i++){
             let cms = `\n#${i+1} `;
             val.forEach((v,i)=>{
                 cms+=`${i}: ${v}`;
             });
-            msg+=cms;
+            _msg+=cms;
         }
-        msg.channel.send(msg);
+        msg.channel.send(_msg);
         msg.channel.send({ embed: embed });
     });
     } else
