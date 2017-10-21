@@ -133,7 +133,8 @@ client.on(`message`, (msg) => {
         }
         request(`http://warvale.net:3080/leaderboard/${args[0].toLowerCase()}`,(data)=>{
         val = JSON.parse(data);
-        
+        console.log(data,val);
+
         let msg = `***\`Leaderboard for ${args[0].toUpperCase()}\`***`;
         for (var i = 0; i < val.length; i++){
             let cms = `\n#${i+1} `;
