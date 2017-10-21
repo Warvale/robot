@@ -131,7 +131,11 @@ client.on(`message`, (msg) => {
             msg.channel.send(`:x: Error!`);
             return;
         }
-        request(`http://warvale.net:3080/leaderboard/${args[0].toLowerCase()}`,(data)=>{
+        request(`http://warvale.net:3080/leaderboard/${args[0].toLowerCase()}`,(error, resp,data)=>{
+            if (error) {
+                msg.channel.send(`:x: Error while requesting info!`);
+                throw error;
+            }
         val = JSON.parse(data);
         console.log(data,val);
 
