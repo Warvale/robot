@@ -5,7 +5,7 @@ This bot is made in NodeJS utilizing the Discord API through the Discord.js libr
 
 
 ### Agreement
-- You will not self-host this bot without Warvale's permission.
+- You will not self-host this bot without Warvale's written permission.
 - You will not resell, modify or distribute this bot publicly.
 
 ### Contributors
