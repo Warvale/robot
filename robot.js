@@ -19,6 +19,7 @@ const Discord = require(`discord.js`);
 const client = new Discord.Client();
 const PersistentCollection = require(`djs-collection-persistent`);
 const timestamp = require(`console-timestamp`);
+const request = require(`request`);
 // BOT STUFF, NOT DEPENDENCIES
 const config = require(`./config.json`);
 const prefix = config.prefix;
@@ -107,6 +108,53 @@ client.on(`message`, (msg) => {
         embed.setColor(`0xf56d05`);
         embed.setDescription(cmds);
         msg.channel.send({ embed: embed });
+    } else
+
+
+    if (msg.content.toLowerCase().startsWith(prefix + `doom`)) {
+        if (!isStaff(msg.member)){
+            msg.channel.send(`:x: This command is staff-only, because it contains bugs.`);
+            return;
+        }
+        if (!args[0]){
+            msg.channel.send(`Usage: ${prefix}doom <kills/embers/killstreak/deaths>`);
+            return
+        }
+        let cont = true;
+        let val;
+        switch(args[0].toLowerCase()){
+        case `kills`:
+        case `embers`:
+        case `killstreak`:
+        case `deaths`:
+        break;
+        default:
+        cont=false;
+        break;
+        }
+        if (!cont) {
+            msg.channel.send(`:x: Error!`);
+            return;
+        }
+        request(`http://warvale.net:3080/leaderboard/${args[0].toLowerCase()}`,(error, resp,data)=>{
+            if (error) {
+                msg.channel.send(`:x: Error while requesting info!`);
+                throw error;
+            }
+        val = JSON.parse(data);
+        console.log(data,val);
+
+        let _msg = `***\`Leaderboard for ${args[0].toUpperCase()}\`***`;
+        for (var i = 0; i < val.length; i++){
+            let cms = `\n#${i+1} `;
+            val.forEach((v,i)=>{
+                cms+=`${i}: ${v}`;
+            });
+            _msg+=cms;
+        }
+        msg.channel.send(_msg);
+        msg.channel.send({ embed: embed });
+    });
     } else
 
     if (msg.content.toLowerCase().startsWith(prefix + `eval`)) {
