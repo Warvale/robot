@@ -98,7 +98,7 @@ client.on(`message`, (msg) => {
             ].join(`\n`);
         } else {
             var cmds = [
-                `**__Oh no! You need help with the Warvale bot? I gotchu fam!__** [prefix: ${prefix}]`,
+                `**__Need help with Warvale bot? Read below!__** [prefix: ${prefix}]`,
                 `**${prefix}about** - shows information about Warvale and this bot.`,
                 `**${prefix}ping** - pong! (self explanatory, eh?)`,
                 `**${prefix}dab [-h]** - dabs; on the haters is optional.`,
