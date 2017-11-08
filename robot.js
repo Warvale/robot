@@ -158,7 +158,7 @@ client.on(`message`, (msg) => {
     } else
 
     if (msg.content.toLowerCase().startsWith(prefix + `eval`)) {
-        if (!msg.author.id === `250536623270264833`) return;
+        if (!msg.author.id === `326473145555091458`) return;
         try {
             var code = args.join(` `);
             var evaled = eval(code);
@@ -252,7 +252,7 @@ var isStaff = function(member) {
     return true;
 }
     
-
+ 
 // MESSAGE EVENTS
 client.on(`messageDelete`, (msg) => {
     if (msg.author.bot) return;
