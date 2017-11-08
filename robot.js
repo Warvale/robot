@@ -86,9 +86,9 @@ client.on(`message`, (msg) => {
         var embed = new Discord.MessageEmbed();
         if (isStaff(msg.member)) {
             var cmds = [
-                `**__Oh no! You need help with the Warvale bot? I gotchu fam!__** [prefix: ${prefix}]`,
+                `**__Need help with Warvale bot? Read below!__** [prefix: ${prefix}]`,
                 `**${prefix}about** - shows information about Warvale and this bot.`,
-                `**${prefix}ping** - pong! (self explanatory, eh?)`,
+                `**${prefix}ping** - pong!`,
                 `**${prefix}dab [-h]** - dabs; on the haters is optional.`,
                 `**${prefix}ip** - displays the IP to Warvale Network.`,       
                 `**${prefix}mute <member mention or ID> <reason>** - mutes the member for the reason.`,
@@ -100,7 +100,7 @@ client.on(`message`, (msg) => {
             var cmds = [
                 `**__Need help with Warvale bot? Read below!__** [prefix: ${prefix}]`,
                 `**${prefix}about** - shows information about Warvale and this bot.`,
-                `**${prefix}ping** - pong! (self explanatory, eh?)`,
+                `**${prefix}ping** - pong!`,
                 `**${prefix}dab [-h]** - dabs; on the haters is optional.`,
                 `**${prefix}ip** - displays the IP to Warvale Network.`
             ].join(`\n`);
