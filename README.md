@@ -11,6 +11,7 @@ This bot is made in NodeJS utilizing the Discord API through the Discord.js libr
 ### Contributors
 - Jellz
 - RONTheCookie
+- spacetrain31
 
 Join the official Warvale Discord guild [here.](https://discord.gg/TCQbbjF)  
 View the Warvale website [here](https://warvale.net)  
