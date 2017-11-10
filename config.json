@@ -1,5 +1,6 @@
 {
     "prefix":"!",
     "logChannel":"warvale-bot-logs",
-    "staffRole":"Staff"
+    "staffRole":"Staff",
+    "staffRole2":"Admins"
 }
