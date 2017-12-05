@@ -251,12 +251,6 @@ var isStaff = function(member) {
     if (!member.roles.has(staffRole)) return false;
     return true;
 }
-
-var isStaff = function(member) {
-    const staffRole2 = member.guild.roles.find(`name`, config.staffRole2).id;
-    if (!member.roles.has(staffRole2)) return false;
-    return true;
-}
     
  
 // MESSAGE EVENTS
